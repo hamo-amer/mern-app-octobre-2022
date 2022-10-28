@@ -2,7 +2,8 @@ const User = require("../models/User")
 
 
 exports.addUser=async(req,res)=>{
-    const {username,email,age,gender,birthday}=req.body
+    let {username,email,age,gender,birthday}=req.body
+    age=Number(age)
 try {
     const founduser=await User.findOne({email})
     if(founduser){
